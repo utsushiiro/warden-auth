@@ -6,6 +6,7 @@ use Rack::Session::Cookie, secret: ENV['COOKIE_SECRET_KEY'] || 'hoge'
 
 use Warden::Manager do |manager|
   manager.default_strategies :password
+  manager.failure_app = lambda {|env| ['401', {'Content-Type' => 'text/html'}, ['failed']]}
 end
 
 Warden::Manager.serialize_into_session {|user| user.id}
