@@ -1,5 +1,6 @@
 require 'rack'
 require './Application'
+require './User'
 require 'warden'
 
 use Rack::Session::Cookie, secret: ENV['COOKIE_SECRET_KEY'] || 'hoge'
