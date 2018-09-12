@@ -8,9 +8,11 @@ class Application
         env['warden'].authenticate!
         ['200', {'Content-Type' => 'text/html'}, ["Hello #{env['warden'].user.id}!"]]
       when '/logout'
-        id = env['warden'].user.id
         env['warden'].logout
-        ['200', {'Content-Type' => 'text/html'}, ["GoodBye #{id}!"]]
+        ['200', {'Content-Type' => 'text/html'}, ["GoodBye!"]]
+      when '/protected'
+        env['warden'].authenticate!
+        ['200', {'Content-Type' => 'text/html'}, ['This is a protected page!']]
       end
     end
 end
