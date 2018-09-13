@@ -71,6 +71,7 @@ This is a protected page!
 ```
 
 ## Cookieの中身確認
+
 ```
 [1] pry(main)> require "base64"
 => true
@@ -82,6 +83,7 @@ This is a protected page!
 => {"session_id"=>"fcc414445f3981342c5cb4ee278d067498126ce9558f6831d5bd406196d7722b", "warden.user.default.key"=>"sample_user"}
 ```
 
+RackがCookie末尾にdigestを付与しているのでCookie改竄によるなりすまし等は防げるが, Cookieのreplay attackは普通にできちゃう.
 
 ## 参考
 - [Warden wiki](https://github.com/hassox/warden/wiki)
