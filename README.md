@@ -1,6 +1,14 @@
 # warden-auth
 Rackの勉強も兼ねたWarden(General Rack Authentication Framework)をつかった認証基盤作成の簡単なサンプル.
 
+## 起動
+```
+ $ rackup
+[2018-09-13 22:20:53] INFO  WEBrick 1.4.2
+[2018-09-13 22:20:53] INFO  ruby 2.5.0 (2017-12-25) [x86_64-darwin17]
+[2018-09-13 22:20:53] INFO  WEBrick::HTTPServer#start: pid=3550 port=9292
+
+```
 
 ## 参考
 - [Warden wiki](https://github.com/hassox/warden/wiki)
