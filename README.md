@@ -70,6 +70,18 @@ This is a protected page!
 
 ```
 
+## Cookieの中身確認
+```
+[1] pry(main)> require "base64"
+=> true
+[2] pry(main)> session_in_cookie = 'BAh7B0...省略...4f49f5'
+=> ..略..
+[3] pry(main)> session_base64, digest = URI.decode(session_in_cookie).split("--")
+=> ..略..
+[4] pry(main)> Marshal.load(Base64.decode64(session_base64))
+=> {"session_id"=>"fcc414445f3981342c5cb4ee278d067498126ce9558f6831d5bd406196d7722b", "warden.user.default.key"=>"sample_user"}
+```
+
 
 ## 参考
 - [Warden wiki](https://github.com/hassox/warden/wiki)
@@ -79,3 +91,4 @@ This is a protected page!
 - [Devise を知るにはまず Warden を知るが良い](http://vimtaku.github.io/blog/2014/03/02/warden/)
 - [Warden でログイン管理](http://ataru-kodaka.hatenablog.com/entry/2014/07/23/230727)
 - [Railsの認証Gem、Deviseとはなんなのか](http://astap.hatenablog.jp/entry/2017/04/16/221349)
+- [Rails で (Rack の) セッション情報を Cookie に保存する仕組み](https://qiita.com/labocho/items/32efc5b7c73aba3500ff)
